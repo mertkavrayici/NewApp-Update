@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/BreakingNewsFragment"
+        android:title="Son Dakika"
+        android:icon="@drawable/ic_baseline_insert_comment_24"
+        />
+    <item android:id="@+id/SportsFragment"
+        android:title="Spor"
+        android:icon="@drawable/ic_baseline_sports_24"></item>
+    <item android:id="@+id/TechnologyFragment"
+        android:title="Teknoloji"
+        android:icon="@drawable/ic_baseline_laptop_24"></item>
+
+    <item android:id="@+id/SavedNewsFragment"
+        android:title="Kaydedilenler"
+        android:icon="@drawable/ic_baseline_save_24"
+        />
+
+
+
+    <item android:id="@+id/SearchNewsFragment"
+        android:title="Arama"
+        android:icon="@drawable/ic_baseline_search_24"></item>
+
+
+
+
+
+</menu>

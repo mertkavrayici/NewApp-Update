@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+tools:showIn="nav_view"
+    >
+
+
+
+        <item
+            android:id="@+id/country1"
+            android:title="Turkey"
+
+            ></item>
+
+        <item
+            android:id="@+id/country2"
+            android:title="United States"
+
+
+            ></item>
+
+
+
+
+        <item
+
+            android:id="@+id/country3"
+            android:title="Germany"
+            ></item>
+
+
+</menu>
