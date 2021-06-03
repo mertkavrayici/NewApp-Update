@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.androiddevs.mvvmnewsapp.R
 import com.androiddevs.mvvmnewsapp.adapters.NewsAdapter
-import com.androiddevs.mvvmnewsapp.ui.activities.DeNewsActivity
 import com.androiddevs.mvvmnewsapp.ui.activities.NewsActivity
 import com.androiddevs.mvvmnewsapp.ui.NewsViewModel
+import com.androiddevs.mvvmnewsapp.ui.activities.DeNewsActivity
 import com.androiddevs.mvvmnewsapp.ui.activities.UsNewsActivity
 import com.androiddevs.mvvmnewsapp.util.Constants.Companion.QUERY_PAGE_SIZE
 import com.androiddevs.mvvmnewsapp.util.Resource
@@ -39,6 +39,7 @@ viewModel=activity.let {
         is UsNewsActivity ->it.viewModel
 
         is DeNewsActivity -> it.viewModel
+
         else -> error("Lütfen Yanlış Yapma")
     }
 
@@ -85,7 +86,7 @@ viewModel=activity.let {
                 }
             })
         }
-          else if(activity!! is DeNewsActivity){
+        else if(activity!! is DeNewsActivity){
             viewModel.deBreakingNews.observe(viewLifecycleOwner, Observer { response ->
                 when(response) {
                     is Resource.Success -> {
@@ -138,6 +139,8 @@ viewModel=activity.let {
                 }
             })
         }
+
+
 
 
     }

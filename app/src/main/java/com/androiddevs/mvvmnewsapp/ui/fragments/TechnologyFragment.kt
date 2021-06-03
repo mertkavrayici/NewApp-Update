@@ -39,6 +39,8 @@ class TechnologyFragment :Fragment(R.layout.fragment_technology) {
                 is NewsActivity ->it.viewModel
                 is UsNewsActivity ->it.viewModel
                 is DeNewsActivity -> it.viewModel
+
+
                 else -> error("Lütfen Yanlış Yapma")
             }
         }
@@ -136,6 +138,8 @@ class TechnologyFragment :Fragment(R.layout.fragment_technology) {
                 }
             })
         }
+
+
 
     }
 

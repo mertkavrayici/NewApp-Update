@@ -12,6 +12,8 @@ interface NewsAPI {
     suspend fun getBreakingNews(
         @Query("country")
         countryCode: String ,
+        @Query("pageSize")
+        pageSize:Int=100,
         @Query("page")
         pageNumber: Int = 1,
         @Query("apiKey")

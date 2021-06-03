@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.androiddevs.mvvmnewsapp.R
 import com.androiddevs.mvvmnewsapp.adapters.NewsAdapter
-import com.androiddevs.mvvmnewsapp.ui.activities.DeNewsActivity
 import com.androiddevs.mvvmnewsapp.ui.activities.NewsActivity
 import com.androiddevs.mvvmnewsapp.ui.NewsViewModel
+import com.androiddevs.mvvmnewsapp.ui.activities.DeNewsActivity
 import com.androiddevs.mvvmnewsapp.ui.activities.UsNewsActivity
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,6 +32,7 @@ class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
                 is NewsActivity ->it.viewModel
                 is UsNewsActivity ->it.viewModel
                 is DeNewsActivity -> it.viewModel
+
                 else -> error("Lütfen Yanlış Yapma")
             }
         }

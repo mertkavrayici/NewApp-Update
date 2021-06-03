@@ -37,6 +37,7 @@ class SportsFragment : Fragment(R.layout.fragment_sports) {
                 is NewsActivity ->it.viewModel
                 is UsNewsActivity ->it.viewModel
                 is DeNewsActivity -> it.viewModel
+
                 else -> error("Lütfen Yanlış Yapma")
             }
         }
@@ -135,6 +136,7 @@ class SportsFragment : Fragment(R.layout.fragment_sports) {
                 }
             })
         }
+
 
     }
 

@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androiddevs.mvvmnewsapp.R
 import com.androiddevs.mvvmnewsapp.adapters.NewsAdapter
-import com.androiddevs.mvvmnewsapp.ui.activities.DeNewsActivity
 import com.androiddevs.mvvmnewsapp.ui.activities.NewsActivity
 import com.androiddevs.mvvmnewsapp.ui.NewsViewModel
+import com.androiddevs.mvvmnewsapp.ui.activities.DeNewsActivity
 import com.androiddevs.mvvmnewsapp.ui.activities.UsNewsActivity
 import com.androiddevs.mvvmnewsapp.util.Constants.Companion.SEARCH_NEWS_TIME_DELAY
 import com.androiddevs.mvvmnewsapp.util.Resource
@@ -39,6 +39,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
                 is NewsActivity ->it.viewModel
                 is UsNewsActivity ->it.viewModel
                 is DeNewsActivity -> it.viewModel
+
                 else -> error("Lütfen Yanlış Yapma")
             }
         }

@@ -37,16 +37,17 @@ class NewsActivity : AppCompatActivity() {
                 R.id.country1 -> {
                     val intent = Intent(this, NewsActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
                 R.id.country2 -> {
                     val intent = Intent(this, UsNewsActivity::class.java)
                     startActivity(intent)
-
+                    finish()
                 }
                 R.id.country3 -> {
                     val intent = Intent(this, DeNewsActivity::class.java)
                     startActivity(intent)
-
+                    finish()
                 }
 
             }
