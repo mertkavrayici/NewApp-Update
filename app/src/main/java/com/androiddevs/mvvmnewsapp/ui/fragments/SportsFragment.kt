@@ -66,7 +66,7 @@ class SportsFragment : Fragment(R.layout.fragment_sports) {
                             val totalPages=newsResponse.totalResults/ Constants.QUERY_PAGE_SIZE +2 //Sayfada boşluk oluşuyor
                             isLastPage=viewModel.breakingNewsPage==totalPages
                             if(isLastPage){
-                                rvBreakingNews.setPadding(0,0,0,0)
+                                rvSportsNews.setPadding(0,0,0,0)
                             }
                         }
                     }
@@ -91,9 +91,9 @@ class SportsFragment : Fragment(R.layout.fragment_sports) {
                         response.data?.let { newsResponse ->
                             newsAdapter.differ.submitList(newsResponse.articles.toList())
                             val totalPages=newsResponse.totalResults/ Constants.QUERY_PAGE_SIZE +2 //Sayfada boşluk oluşuyor
-                            isLastPage=viewModel.breakingNewsPage==totalPages
+                            isLastPage=viewModel.usBreakingNewsPage==totalPages
                             if(isLastPage){
-                                rvBreakingNews.setPadding(0,0,0,0)
+                                rvSportsNews.setPadding(0,0,0,0)
                             }
                         }
                     }
@@ -120,7 +120,7 @@ class SportsFragment : Fragment(R.layout.fragment_sports) {
                             val totalPages=newsResponse.totalResults/ Constants.QUERY_PAGE_SIZE +2 //Sayfada boşluk oluşuyor
                             isLastPage=viewModel.deBreakingNewsPage==totalPages
                             if(isLastPage){
-                                rvBreakingNews.setPadding(0,0,0,0)
+                                rvSportsNews.setPadding(0,0,0,0)
                             }
                         }
                     }
@@ -185,8 +185,27 @@ class SportsFragment : Fragment(R.layout.fragment_sports) {
 
             if (shouldPaginate) {
 
-                viewModel.getSportsNews("sports","tr")
-                isScrooling = false
+                if(activity!! is NewsActivity){
+
+
+                    viewModel.getSportsNews("sports","tr")
+                    isScrooling = false
+
+                }
+                else if(activity!! is UsNewsActivity){
+
+
+                    viewModel.getUsSportsNews("sports","us")
+                    isScrooling = false
+
+                }
+                 else if(activity!! is DeNewsActivity){
+
+
+                    viewModel.getDeSportsNews("sports","de")
+                    isScrooling = false
+
+                }
 
             }
         }

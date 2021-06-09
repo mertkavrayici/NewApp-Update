@@ -183,7 +183,7 @@ viewModel=activity.let {
 
             val isAtLastItem=firstVisibleItemPosition+visibleItemCount >= totalItemCount
 
-            val isNotBegining=firstVisibleItemPosition>=0
+            val isNotBegining=firstVisibleItemPosition >= 0
 
             val isTotalMoreThanVisible=totalItemCount>=QUERY_PAGE_SIZE
 
@@ -191,19 +191,32 @@ viewModel=activity.let {
 
             if(shouldPaginate){
 
+                if(activity!! is NewsActivity){
 
 
+                    viewModel.getBreakingNews("tr")
+                    isScrooling = false
 
-                        viewModel.getBreakingNews("tr")
-                        isScrooling = false
+                }
+                else if(activity!! is UsNewsActivity){
 
 
+                    viewModel.getUsBreakingNews("us")
+                    isScrooling = false
+
+                }
+                else if(activity!! is DeNewsActivity){
 
 
-                //If I came here from activity b
+                    viewModel.getDeBreakingNews("de")
+                    isScrooling = false
+
+                }
+
 
 
             }
+
 
 
 

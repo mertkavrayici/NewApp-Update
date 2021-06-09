@@ -11,6 +11,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.androiddevs.mvvmnewsapp.BaseApplication
+import com.androiddevs.mvvmnewsapp.api.ApiHelper
 import com.androiddevs.mvvmnewsapp.models.Article
 import com.androiddevs.mvvmnewsapp.models.NewsResponse
 import com.androiddevs.mvvmnewsapp.repository.NewsRepository
@@ -22,6 +23,7 @@ import java.io.IOException
 class NewsViewModel @ViewModelInject constructor(
     app:Application,
     private val newsRepository: NewsRepository
+
 ) : AndroidViewModel(app) {
 
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
@@ -54,6 +56,8 @@ class NewsViewModel @ViewModelInject constructor(
 
     val searchNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var searchNewsPage = 1
+    var searchNewsResponse:NewsResponse?=null
+
 
     val sportsNews : MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var sportsNewsPage=1
@@ -79,6 +83,7 @@ class NewsViewModel @ViewModelInject constructor(
         getUsSportsNews("sports","us")
         getDeTechNews("technology","de")
         getDeSportsNews("sports","de")
+
 
 
 
@@ -318,10 +323,24 @@ class NewsViewModel @ViewModelInject constructor(
 
             if(response.isSuccessful) {
                 response.body()?.let { resultResponse ->
-                    return Resource.Success(resultResponse)
+                    searchNewsPage++
+
+                    if(searchNewsResponse==null){
+                        searchNewsResponse=resultResponse
+                    }
+                    else{
+                        val oldArticles=searchNewsResponse?.articles
+                        val newArticles=resultResponse.articles
+                        oldArticles?.addAll(newArticles)
+
+                    }
+                    return Resource.Success(searchNewsResponse?:resultResponse)
+                }
+
+
 
                 }
-            }
+
         return Resource.Error(response.message())
         }
 

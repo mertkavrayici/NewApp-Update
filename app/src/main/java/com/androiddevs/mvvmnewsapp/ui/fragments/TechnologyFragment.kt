@@ -69,7 +69,7 @@ class TechnologyFragment :Fragment(R.layout.fragment_technology) {
                             val totalPages=newsResponse.totalResults/ Constants.QUERY_PAGE_SIZE +2 //Sayfada boşluk oluşuyor
                             isLastPage=viewModel.breakingNewsPage==totalPages
                             if(isLastPage){
-                                rvBreakingNews.setPadding(0,0,0,0)
+                                rvTechNews.setPadding(0,0,0,0)
                             }
                         }
                     }
@@ -95,7 +95,7 @@ class TechnologyFragment :Fragment(R.layout.fragment_technology) {
                             val totalPages=newsResponse.totalResults/ Constants.QUERY_PAGE_SIZE +2 //Sayfada boşluk oluşuyor
                             isLastPage=viewModel.deTechNewsPage==totalPages
                             if(isLastPage){
-                                rvBreakingNews.setPadding(0,0,0,0)
+                                rvTechNews.setPadding(0,0,0,0)
                             }
                         }
                     }
@@ -122,7 +122,7 @@ class TechnologyFragment :Fragment(R.layout.fragment_technology) {
                             val totalPages=newsResponse.totalResults/ Constants.QUERY_PAGE_SIZE +2 //Sayfada boşluk oluşuyor
                             isLastPage=viewModel.breakingNewsPage==totalPages
                             if(isLastPage){
-                                rvBreakingNews.setPadding(0,0,0,0)
+                                rvTechNews.setPadding(0,0,0,0)
                             }
                         }
                     }
@@ -187,10 +187,25 @@ class TechnologyFragment :Fragment(R.layout.fragment_technology) {
                 isNotLoadingAndNotLastPage && isAtLastItem && isNotBegining && isTotalMoreThanVisible && isScrooling
 
             if (shouldPaginate) {
+                if (activity!! is NewsActivity) {
 
-                viewModel.getTechNews("technology","tr")
-                isScrooling = false
 
+                    viewModel.getTechNews("technology", "tr")
+                    isScrooling = false
+
+                } else if (activity!! is UsNewsActivity) {
+
+
+                    viewModel.getUsTechNews("technology", "us")
+                    isScrooling = false
+
+                } else if (activity!! is DeNewsActivity) {
+
+
+                    viewModel.getDeTechNews("technology", "de")
+                    isScrooling = false
+
+                }
             }
         }
 
