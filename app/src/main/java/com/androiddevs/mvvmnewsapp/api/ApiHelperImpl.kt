@@ -11,7 +11,7 @@ class ApiHelperImpl @Inject constructor(private val apiService:NewsAPI): ApiHelp
 
     override suspend fun getDeBreakingNews(): Response<NewsResponse> =apiService.getBreakingNews("de")
 
-    override suspend fun searchForNews(): Response<NewsResponse> =apiService.searchForNews("")
+    override suspend fun searchForNews(): Response<NewsResponse> =apiService.searchForNews("q")
 
     override suspend fun getSportsNews(): Response<NewsResponse> =apiService.getCategoryNews("sports","tr")
 

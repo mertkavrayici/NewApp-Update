@@ -44,7 +44,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
                 is UsNewsActivity ->it.viewModel
                 is DeNewsActivity -> it.viewModel
 
-                else -> error("Lütfen Yanlış Yapma")
+                else -> error("")
             }
         }
 

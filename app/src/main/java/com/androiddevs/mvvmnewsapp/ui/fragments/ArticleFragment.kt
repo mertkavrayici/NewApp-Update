@@ -30,7 +30,7 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
                 is UsNewsActivity ->it.viewModel
                 is DeNewsActivity ->it.viewModel
 
-                else -> error("Lütfen Yanlış Yapma")
+                else -> error("")
             }
         }
 
